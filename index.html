@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
@@ -25,51 +26,31 @@ box-sizing:border-box;
 body{
 background:#050505;
 font-family:'Poppins',sans-serif;
-color:white;
 overflow-x:hidden;
-}
-
-/* SCROLLBAR */
-
-::-webkit-scrollbar{
-width:8px;
-}
-
-::-webkit-scrollbar-thumb{
-background:linear-gradient(180deg,#ff008c,#7b2cff);
-border-radius:20px;
-}
-
-/* HIDE DOWNLOAD */
-
-video::-internal-media-controls-download-button{
-display:none;
-}
-
-video::-webkit-media-controls-enclosure{
-overflow:hidden;
-}
-
-video::-webkit-media-controls-panel{
-width:calc(100% + 35px);
+color:white;
 }
 
 /* HEADER */
 
 header{
-width:100%;
-padding:16px 5%;
-display:flex;
-justify-content:space-between;
-align-items:center;
 position:fixed;
 top:0;
 left:0;
-z-index:9999;
-background:rgba(0,0,0,0.92);
+width:100%;
+padding:16px 4%;
+z-index:99999;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:rgba(0,0,0,0.88);
 backdrop-filter:blur(12px);
-border-bottom:1px solid rgba(255,255,255,0.08);
+
+border-bottom:1px solid rgba(255,255,255,0.06);
 }
+
+/* LOGO */
 
 .logo{
 display:flex;
@@ -79,18 +60,19 @@ text-decoration:none;
 }
 
 .logo img{
-width:56px;
-height:56px;
+width:54px;
+height:54px;
 border-radius:16px;
 object-fit:cover;
 
 box-shadow:
-0 0 20px rgba(255,0,170,0.35),
+0 0 25px rgba(255,0,170,0.30),
 0 0 45px rgba(123,44,255,0.20);
 }
 
 .logo span{
-font-size:34px;
+
+font-size:32px;
 font-family:'Orbitron',sans-serif;
 font-weight:800;
 
@@ -107,10 +89,12 @@ background:linear-gradient(
 -webkit-text-fill-color:transparent;
 }
 
+/* MENU */
+
 nav{
 display:flex;
+align-items:center;
 gap:22px;
-flex-wrap:wrap;
 }
 
 nav a{
@@ -118,14 +102,9 @@ color:white;
 text-decoration:none;
 font-size:15px;
 font-weight:600;
-transition:0.3s;
 }
 
-nav a:hover{
-color:#ff6ec7;
-}
-
-/* RIGHT MENU */
+/* RIGHT */
 
 .right-menu{
 display:flex;
@@ -133,16 +112,44 @@ align-items:center;
 gap:14px;
 }
 
+/* SEARCH */
+
+.search-btn{
+width:50px;
+height:50px;
+border:none;
+border-radius:14px;
+background:#151515;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+/* LOGIN */
+
+.login-btn{
+padding:14px 28px;
+border:none;
+border-radius:14px;
+background:white;
+color:black;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+}
+
 /* PROFILE */
 
 .profile-box{
 display:none;
 align-items:center;
-gap:12px;
-background:#111;
-padding:10px 16px;
-border-radius:18px;
-border:1px solid rgba(255,255,255,0.08);
+gap:10px;
+
+background:#151515;
+
+padding:8px 14px;
+
+border-radius:14px;
 }
 
 .profile-box img{
@@ -157,51 +164,13 @@ font-size:15px;
 font-weight:600;
 }
 
-/* BUTTONS */
-
-.search-btn{
-width:50px;
-height:50px;
+.logout-btn{
+padding:10px 16px;
 border:none;
-border-radius:16px;
-background:#151515;
+border-radius:12px;
+background:#ff004f;
 color:white;
-font-size:18px;
-cursor:pointer;
-}
-
-.login-btn{
-padding:14px 30px;
-border-radius:18px;
-
-background:
-linear-gradient(#111,#111) padding-box,
-linear-gradient(90deg,#ff6ec7,#ff008c,#8a2eff) border-box;
-
-border:2px solid transparent;
-
-color:white;
-font-size:15px;
-font-weight:700;
-cursor:pointer;
-}
-
-.signup-btn{
-padding:14px 30px;
-border:none;
-border-radius:18px;
-
-background:
-linear-gradient(
-90deg,
-#ff6ec7,
-#ff008c,
-#8a2eff,
-#5ce1ff
-);
-
-color:white;
-font-size:15px;
+font-size:14px;
 font-weight:700;
 cursor:pointer;
 }
@@ -209,51 +178,48 @@ cursor:pointer;
 /* HERO */
 
 .hero{
-min-height:100vh;
-display:flex;
-align-items:center;
+height:100vh;
+position:relative;
+overflow:hidden;
+}
 
-padding:140px 5% 70px;
+/* KEEP OLD BACKGROUND */
+
+.hero::before{
+
+content:'';
+
+position:absolute;
+inset:0;
 
 background:
-linear-gradient(to right,rgba(0,0,0,0.95),rgba(0,0,0,0.60)),
+linear-gradient(to top,rgba(0,0,0,0.95),rgba(0,0,0,0.40)),
 url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1600&auto=format&fit=crop');
 
 background-size:cover;
 background-position:center;
 }
 
+/* CONTENT */
+
 .hero-content{
-max-width:720px;
+position:absolute;
+left:5%;
+bottom:90px;
+z-index:10;
+max-width:550px;
 }
 
 .hero-content h1{
-font-size:76px;
-line-height:1.05;
-margin-bottom:24px;
+font-size:74px;
 font-weight:800;
+line-height:1.05;
+margin-bottom:16px;
 }
 
 .hero-content h1 span{
-background:linear-gradient(90deg,#ff6ec7,#ff008c,#8a2eff,#5ce1ff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
 
-.hero-content p{
-font-size:19px;
-line-height:1.9;
-color:#d5d5d5;
-margin-bottom:35px;
-}
-
-.watch-btn{
-padding:18px 40px;
-border:none;
-border-radius:22px;
-
-background:
-linear-gradient(
+background:linear-gradient(
 90deg,
 #ff6ec7,
 #ff008c,
@@ -261,86 +227,112 @@ linear-gradient(
 #5ce1ff
 );
 
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero-content p{
+font-size:19px;
+line-height:1.8;
+color:#ddd;
+margin-bottom:30px;
+}
+
+/* WATCH */
+
+.watch-btn{
+padding:18px 34px;
+
+border:none;
+border-radius:14px;
+
+background:#00d84a;
+
 color:white;
-font-size:20px;
-font-weight:800;
+
+font-size:18px;
+font-weight:700;
+
 cursor:pointer;
+
+display:flex;
+align-items:center;
+gap:12px;
 }
 
 /* SECTION */
 
 .section{
-padding:90px 5%;
+padding:70px 4%;
 }
 
-.section-title{
-font-size:46px;
-margin-bottom:40px;
+/* TOP */
+
+.section-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:28px;
+}
+
+.section-top h2{
+font-size:38px;
 font-weight:800;
 }
 
-.section-title span{
-background:linear-gradient(90deg,#ff6ec7,#ff008c,#8a2eff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+.section-top a{
+color:white;
+text-decoration:none;
 }
 
 /* MOVIES */
 
 .movie-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:35px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:24px;
 }
 
 .movie-card{
 background:#101010;
-border-radius:28px;
+border-radius:22px;
 overflow:hidden;
-
-border:1px solid rgba(255,255,255,0.05);
-
 transition:0.4s;
 }
 
 .movie-card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 40px rgba(255,0,170,0.25);
+transform:translateY(-8px);
 }
 
 .movie-card img{
 width:100%;
-height:430px;
+height:320px;
 object-fit:cover;
 display:block;
 }
 
 .movie-info{
-padding:24px;
+padding:18px;
 }
 
 .movie-info h3{
-font-size:24px;
-margin-bottom:18px;
-line-height:1.5;
+font-size:22px;
+margin-bottom:10px;
+}
+
+.movie-info p{
+color:#bbb;
+margin-bottom:16px;
 }
 
 .movie-info button{
 width:100%;
-padding:16px;
+padding:14px;
 border:none;
-border-radius:18px;
-
-background:
-linear-gradient(
-90deg,
-#ff6ec7,
-#ff008c,
-#8a2eff
-);
-
+border-radius:14px;
+background:#00d84a;
 color:white;
-font-size:18px;
+font-size:16px;
 font-weight:700;
 cursor:pointer;
 }
@@ -360,23 +352,31 @@ padding:20px;
 
 .popup-box{
 width:100%;
-max-width:450px;
+max-width:430px;
 
 background:#111;
-padding:38px;
-border-radius:30px;
+
+padding:36px;
+
+border-radius:28px;
 
 position:relative;
-
-border:1px solid rgba(255,255,255,0.08);
 }
 
 .popup-box h2{
+
 margin-bottom:24px;
 
-font-family:'Orbitron',sans-serif;
+font-size:30px;
 
-background:linear-gradient(90deg,#ff6ec7,#ff008c,#8a2eff,#5ce1ff);
+background:linear-gradient(
+90deg,
+#ffffff,
+#ff6ec7,
+#ff008c,
+#8a2eff,
+#5ce1ff
+);
 
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
@@ -387,10 +387,8 @@ background:linear-gradient(90deg,#ff6ec7,#ff008c,#8a2eff,#5ce1ff);
 width:100%;
 padding:16px;
 margin-bottom:16px;
-
 border:none;
-border-radius:16px;
-
+border-radius:14px;
 background:#1a1a1a;
 color:white;
 font-size:15px;
@@ -401,7 +399,7 @@ width:100%;
 padding:16px;
 
 border:none;
-border-radius:18px;
+border-radius:14px;
 
 background:
 linear-gradient(
@@ -420,13 +418,13 @@ cursor:pointer;
 
 .close-popup{
 position:absolute;
-top:15px;
-right:22px;
+top:14px;
+right:20px;
 font-size:34px;
 cursor:pointer;
 }
 
-/* VIDEO */
+/* PLAYER */
 
 .player-modal{
 position:fixed;
@@ -435,14 +433,14 @@ background:#000;
 display:none;
 justify-content:center;
 align-items:center;
-z-index:9999999;
+z-index:999999999;
 padding:20px;
 }
 
 .player-modal video{
 width:100%;
 max-width:1200px;
-border-radius:22px;
+border-radius:18px;
 background:black;
 }
 
@@ -454,102 +452,52 @@ font-size:45px;
 cursor:pointer;
 }
 
-/* FOOTER */
-
-footer{
-padding:60px 5%;
-background:#080808;
-border-top:1px solid rgba(255,255,255,0.08);
-}
-
-.footer-content{
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-gap:25px;
-}
-
-.footer-logo{
-display:flex;
-align-items:center;
-gap:12px;
-}
-
-.footer-logo img{
-width:52px;
-height:52px;
-border-radius:16px;
-}
-
-.footer-logo span{
-font-size:32px;
-font-family:'Orbitron',sans-serif;
-font-weight:800;
-
-background:linear-gradient(
-90deg,
-#ffffff,
-#ff6ec7,
-#ff008c,
-#8a2eff,
-#5ce1ff
-);
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.copyright{
-margin-top:30px;
-text-align:center;
-color:#777;
-}
-
 /* MOBILE */
 
-@media(max-width:850px){
+@media(max-width:900px){
 
 header{
-padding:16px 4%;
-flex-direction:column;
+flex-wrap:wrap;
 gap:18px;
 }
 
 nav{
+width:100%;
 justify-content:center;
-gap:16px;
+gap:18px;
+flex-wrap:wrap;
 }
 
 .right-menu{
-width:100%;
-justify-content:center;
+margin-left:auto;
 }
 
 .hero{
-padding-top:320px;
-text-align:center;
-justify-content:center;
+height:92vh;
+}
+
+.hero-content{
+left:5%;
+right:5%;
+bottom:60px;
+max-width:100%;
 }
 
 .hero-content h1{
-font-size:54px;
+font-size:48px;
 }
 
 .hero-content p{
-font-size:17px;
+font-size:16px;
 }
 
 .watch-btn{
 width:100%;
-max-width:360px;
-font-size:22px;
-padding:20px;
+justify-content:center;
 }
 
-.footer-content{
-justify-content:center;
-text-align:center;
+.section-top h2{
+font-size:30px;
 }
 
 }
@@ -575,11 +523,10 @@ text-align:center;
 <nav>
 
 <a href="#">Home</a>
-<a href="#movies">Movies</a>
+<a href="#">Movies</a>
 <a href="#">Series</a>
 <a href="#">Drama</a>
 <a href="#">Music</a>
-<a href="#">Action</a>
 
 </nav>
 
@@ -589,21 +536,21 @@ text-align:center;
 <i class="fa-solid fa-magnifying-glass"></i>
 </button>
 
+<button class="login-btn" onclick="openPopup()" id="loginBtn">
+Login
+</button>
+
 <div class="profile-box" id="profileBox">
 
 <img src="https://i.ibb.co/2kR8z5w/user.png">
 
 <span id="profileName">User</span>
 
+<button class="logout-btn" onclick="logoutUser()">
+Logout
+</button>
+
 </div>
-
-<button class="login-btn" onclick="openLogin()" id="loginButton">
-Login
-</button>
-
-<button class="signup-btn" onclick="openSignup()" id="registerButton">
-Register
-</button>
 
 </div>
 
@@ -628,11 +575,12 @@ Watch premium entertainment instantly with direct streaming experience only on G
 
 </p>
 
-<button class="watch-btn">
+<button class="watch-btn"
+onclick="playMovie('https://res.cloudinary.com/db1ulwbxc/video/upload/v1779537590/RAKKHOSH___%E0%A6%95%E0%A7%8B%E0%A6%AA_%E0%A6%B6%E0%A7%81%E0%A6%B0%E0%A7%81___OFFICIAL_TRAILER___SIAM___SUSMITA___EID_UL_FITR_2026___REAL_ENERGY_PRODUCTION_1080P_HD_ibtulv.mp4')">
 
 <i class="fa-solid fa-play"></i>
 
- Start Watching
+Watch Now
 
 </button>
 
@@ -642,13 +590,15 @@ Watch premium entertainment instantly with direct streaming experience only on G
 
 <!-- MOVIES -->
 
-<section class="section" id="movies">
+<section class="section">
 
-<h2 class="section-title">
+<div class="section-top">
 
-Trending <span>Movies</span>
+<h2>Recently Added</h2>
 
-</h2>
+<a href="#">View More</a>
+
+</div>
 
 <div class="movie-grid">
 
@@ -658,13 +608,12 @@ Trending <span>Movies</span>
 
 <div class="movie-info">
 
-<h3>
+<h3>RAKKHOSH</h3>
 
-RAKKHOSH OFFICIAL TRAILER
+<p>Action Thriller</p>
 
-</h3>
-
-<button onclick="playMovie('https://res.cloudinary.com/db1ulwbxc/video/upload/v1779537590/RAKKHOSH___%E0%A6%95%E0%A7%8B%E0%A6%AA_%E0%A6%B6%E0%A7%81%E0%A6%B0%E0%A7%81___OFFICIAL_TRAILER___SIAM___SUSMITA___EID_UL_FITR_2026___REAL_ENERGY_PRODUCTION_1080P_HD_ibtulv.mp4')">
+<button
+onclick="playMovie('https://res.cloudinary.com/db1ulwbxc/video/upload/v1779537590/RAKKHOSH___%E0%A6%95%E0%A7%8B%E0%A6%AA_%E0%A6%B6%E0%A7%81%E0%A6%B0%E0%A7%81___OFFICIAL_TRAILER___SIAM___SUSMITA___EID_UL_FITR_2026___REAL_ENERGY_PRODUCTION_1080P_HD_ibtulv.mp4')">
 
 Watch Now
 
@@ -678,45 +627,21 @@ Watch Now
 
 </section>
 
-<!-- LOGIN -->
+<!-- LOGIN + REGISTER -->
 
-<div class="popup" id="loginPopup">
-
-<div class="popup-box">
-
-<span class="close-popup" onclick="closeLogin()">×</span>
-
-<h2>Login</h2>
-
-<input type="email" placeholder="Enter Email">
-
-<input type="password" placeholder="Enter Password">
-
-<button onclick="fakeLogin()">
-
-Login Now
-
-</button>
-
-</div>
-
-</div>
-
-<!-- REGISTER -->
-
-<div class="popup" id="signupPopup">
+<div class="popup" id="mainPopup">
 
 <div class="popup-box">
 
-<span class="close-popup" onclick="closeSignup()">×</span>
+<span class="close-popup" onclick="closePopup()">×</span>
 
-<h2>Create Profile</h2>
+<h2>Login / Register</h2>
 
 <input type="text" id="userName" placeholder="Enter Your Name">
 
 <input type="email" placeholder="Enter Email">
 
-<input type="password" placeholder="Create Password">
+<input type="password" placeholder="Enter Password">
 
 <select>
 
@@ -730,9 +655,9 @@ Login Now
 
 </select>
 
-<button onclick="createProfile()">
+<button onclick="registerUser()">
 
-Create Profile
+Continue
 
 </button>
 
@@ -740,7 +665,7 @@ Create Profile
 
 </div>
 
-<!-- VIDEO PLAYER -->
+<!-- PLAYER -->
 
 <div class="player-modal" id="playerModal">
 
@@ -758,63 +683,25 @@ oncontextmenu="return false;">
 
 </div>
 
-<!-- FOOTER -->
-
-<footer>
-
-<div class="footer-content">
-
-<div class="footer-logo">
-
-<img src="https://res.cloudinary.com/db1ulwbxc/image/upload/v1779044554/700906516_26654958984183418_6821224961536211562_n_lpfxqc.jpg">
-
-<span>GolpoBox</span>
-
-</div>
-
-</div>
-
-<div class="copyright">
-
-© 2026 GolpoBox. All Rights Reserved.
-
-</div>
-
-</footer>
-
 <script>
 
-/* LOGIN POPUP */
+/* POPUP */
 
-function openLogin(){
+function openPopup(){
 
-document.getElementById('loginPopup').style.display='flex';
-
-}
-
-function closeLogin(){
-
-document.getElementById('loginPopup').style.display='none';
+document.getElementById('mainPopup').style.display='flex';
 
 }
 
-/* SIGNUP POPUP */
+function closePopup(){
 
-function openSignup(){
-
-document.getElementById('signupPopup').style.display='flex';
+document.getElementById('mainPopup').style.display='none';
 
 }
 
-function closeSignup(){
+/* REGISTER */
 
-document.getElementById('signupPopup').style.display='none';
-
-}
-
-/* CREATE PROFILE */
-
-function createProfile(){
+function registerUser(){
 
 let name=document.getElementById('userName').value;
 
@@ -826,33 +713,53 @@ return;
 
 }
 
+localStorage.setItem("golpoboxUser",name);
+
+showProfile(name);
+
+closePopup();
+
+}
+
+/* SHOW PROFILE */
+
+function showProfile(name){
+
 document.getElementById('profileName').innerText=name;
 
 document.getElementById('profileBox').style.display='flex';
 
-document.getElementById('loginButton').style.display='none';
-
-document.getElementById('registerButton').style.display='none';
-
-closeSignup();
+document.getElementById('loginBtn').style.display='none';
 
 }
 
-/* LOGIN */
+/* LOGOUT */
 
-function fakeLogin(){
+function logoutUser(){
 
-document.getElementById('profileBox').style.display='flex';
+localStorage.removeItem("golpoboxUser");
 
-document.getElementById('loginButton').style.display='none';
+document.getElementById('profileBox').style.display='none';
 
-document.getElementById('registerButton').style.display='none';
-
-closeLogin();
+document.getElementById('loginBtn').style.display='block';
 
 }
 
-/* VIDEO PLAYER */
+/* AUTO LOGIN */
+
+window.onload=function(){
+
+let savedUser=localStorage.getItem("golpoboxUser");
+
+if(savedUser){
+
+showProfile(savedUser);
+
+}
+
+}
+
+/* VIDEO */
 
 const modal=document.getElementById('playerModal');
 
@@ -882,17 +789,7 @@ video.load();
 
 }
 
-window.onclick=function(e){
-
-if(e.target==modal){
-
-closePlayer();
-
-}
-
-}
-
-/* DISABLE RIGHT CLICK */
+/* RIGHT CLICK DISABLE */
 
 document.addEventListener('contextmenu', event => event.preventDefault());
 
